@@ -14,6 +14,7 @@ function test(states){
       	document.getElementById("log").innerHTML+="<br>ESTADO: ".concat(location).concat(" | ").concat(states[1]).concat(" | ").concat(states[2]).concat(" | ACTION: ").concat(action_result);
       	if (action_result == "CLEAN"){
             if ((states[1] == "CLEAN" && states[2] == "CLEAN" && states[0] == "B")){
+                console.log("entra aqui");
                 test(["B", "DIRTY", "DIRTY"]);
                 return;
             } 
