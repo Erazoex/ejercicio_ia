@@ -15,7 +15,8 @@ function test(states){
       	if (action_result == "CLEAN"){
         	if (location == "A") states[1] = "CLEAN";
          	else if (location == "B") states[2] = "CLEAN";
-            else if ((states[1] == "CLEAN" && states[2] == "CLEAN")) test(["B", "DIRTY", "DIRTY"]);
+            else if ((states[1] == "CLEAN" && states[2] == "CLEAN" && states[0] == "B")) test(["B", "DIRTY", "DIRTY"]);
+            else if ((states[1] == "CLEAN" && states[2] == "CLEAN" && states[0] == "A")) test(["A", "DIRTY", "DIRTY"]);
       	}
       	else if (action_result == "RIGHT") states[0] = "B";
       	else if (action_result == "LEFT") states[0] = "A";
