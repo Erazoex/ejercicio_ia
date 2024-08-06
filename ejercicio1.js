@@ -13,15 +13,14 @@ function test(states){
       	var action_result = reflex_agent(location, state);
       	document.getElementById("log").innerHTML+="<br>ESTADO: ".concat(location).concat(" | ").concat(states[1]).concat(" | ").concat(states[2]).concat(" | ACTION: ").concat(action_result);
       	if (action_result == "CLEAN"){
-            if ((states[1] == "CLEAN" && states[2] == "CLEAN" && states[0] == "B")){
-                console.log("entra aqui");
-                test(["B", "DIRTY", "DIRTY"]);
-                return;
-            } 
-            else if ((states[1] == "CLEAN" && states[2] == "CLEAN" && states[0] == "A")) return;
-        	else if (location == "A") states[1] = "CLEAN";
+        	if (location == "A") states[1] = "CLEAN";
          	else if (location == "B") states[2] = "CLEAN";
       	}
+        else if (action_result == "RIGHT" && states[1] == "CLEAN" && states[2] == "CLEAN" && states[0] == "B"){
+            test(["B", "DIRTY", "DIRTY"]);
+            return;
+        } 
+        else if ((action_result == "LEFT" && states[1] == "CLEAN" && states[2] == "CLEAN" && states[0] == "A")) return;
       	else if (action_result == "RIGHT") states[0] = "B";
       	else if (action_result == "LEFT") states[0] = "A";
 	setTimeout(function(){ test(states); }, 2000);
