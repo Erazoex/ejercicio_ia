@@ -17,8 +17,12 @@ function test(states){
         console.log(state[2])
         console.log(state[2] == "CLEAN")
       	if (action_result == "CLEAN"){
-        	if (location == "A") states[1] = "CLEAN";
-         	else if (location == "B") states[2] = "CLEAN";
+        	if (location == "A"){
+                states[1] = "CLEAN";
+            } 
+         	else if (location == "B") {
+                states[2] = "CLEAN"
+            };
       	}
         else if (action_result == "RIGHT" && states[1] == "CLEAN" && states[2] == "CLEAN" && location == "A"){
             return test(["B", "DIRTY", "DIRTY"]);
