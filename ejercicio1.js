@@ -10,6 +10,8 @@ function reflex_agent(location, state){
 function test(states){
       	var location = states[0];		
       	var state = states[0] == "A" ? states[1] : states[2];
+        console.log("ESTADO");
+        console.log(state);
       	var action_result = reflex_agent(location, state);
       	document.getElementById("log").innerHTML+="<br>ESTADO: ".concat(location).concat(" | ").concat(states[1]).concat(" | ").concat(states[2]).concat(" | ACTION: ").concat(action_result);
       	if (action_result == "CLEAN"){
