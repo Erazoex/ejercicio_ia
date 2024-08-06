@@ -12,16 +12,16 @@ function test(states){
       	var state = states[0] == "A" ? states[1] : states[2];
       	var action_result = reflex_agent(location, state);
       	document.getElementById("log").innerHTML+="<br>ESTADO: ".concat(location).concat(" | ").concat(states[1]).concat(" | ").concat(states[2]).concat(" | ACTION: ").concat(action_result);
-        console.log(state[1])
-        console.log(state[1] == "CLEAN")
-        console.log(state[2])
-        console.log(state[2] == "CLEAN")
       	if (action_result == "CLEAN"){
         	if (location == "A"){
                 states[1] = "CLEAN";
+                console.log("limpiando estado 1")
+                console.log(state[1]);
             } 
          	else if (location == "B") {
                 states[2] = "CLEAN"
+                console.log("limpiando estado 2")
+                console.log(state[2]);
             };
       	}
         else if (action_result == "RIGHT" && states[1] == "CLEAN" && states[2] == "CLEAN" && location == "A"){
